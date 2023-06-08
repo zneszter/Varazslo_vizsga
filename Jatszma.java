@@ -1,3 +1,6 @@
+import java.util.Random;
+
+
 public class Jatszma extends Multithreading {
 
     Karakter harcos;
@@ -9,24 +12,19 @@ public class Jatszma extends Multithreading {
     }
 
     public void start() {
+
         try {
             System.out.println("Üdvözöllek játékosok");
-            while (harcos.getElet() > 0 && varazslo.getElet() > 0) {
-//                Multithreading t1 = new Multithreading();
-//                Thread m1 = new Thread(t1);
-//                m1.setName("Harcos_thread");
-//                m1.run();
-//                Multithreading t2 = new Multithreading();
-//                Thread m2 = new Thread(t2);
-//                m2.setName("Varazslo_thread");
-//                m2.run();
+            System.out.println("Currently the " + Thread.currentThread().getName() + " is running!");
+            while (harcos.getElet() > 0 && varazslo.getElet() > 0 ) {
+//
 
                 harcos.setPozicio(harcos.lep());
                 varazslo.setPozicio(varazslo.lep());
 
                 //Testing getter for Pozició
-                System.out.println(Thread.currentThread().getName() + "A harcos(" + harcos.getNev() + ") poziciója: " + harcos.getPozicio());
-                System.out.println(Thread.currentThread().getName() + "A varazsló(" + varazslo.getNev() + ") poziciója: " + varazslo.getPozicio());
+//                System.out.println(Thread.currentThread().getName() + "A harcos(" + harcos.getNev() + ") poziciója: " + harcos.getPozicio());
+//                System.out.println(Thread.currentThread().getName() + "A varazsló(" + varazslo.getNev() + ") poziciója: " + varazslo.getPozicio());
 
                 if (harcos.getPozicio() == varazslo.getPozicio()) {
                     System.out.println("\n" + "Támadás!!!!");
@@ -40,22 +38,33 @@ public class Jatszma extends Multithreading {
 
             }
             System.out.println(eredmeny()+"\n");
+//            System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
+//            System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
+//            System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
+
         }
         catch (Exception e) {
             System.out.println("Hoppáááá! " + e.getMessage());
 
         }
-        System.out.println("A játék vége!");
+        System.out.println("A játéknak vége!");
+
     }
 
     public String eredmeny() {
         String eredmeny = "Döntetlen";
         if (harcos.getElet() > varazslo.getElet()) {
             eredmeny = "\n" + "A harcos gözött!";
+            //harcos.setGyozelem();
+            Karakter.H_GYOZELEM = Karakter.H_GYOZELEM+1;
         }
         if (harcos.getElet() < varazslo.getElet()) {
             eredmeny = "\n" + "A varázsló gözött!";
+            //varazslo.setGyozelem();
+            Karakter.V_GYOZELEM = Karakter.V_GYOZELEM+1;
         }
+
+        Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN + 1;
         return eredmeny;
     }
 

@@ -7,6 +7,10 @@ public class Varazslo_vizsga {
         t1.setName("main thread");
         t1.start();
 
+        Thread t2 = new Thread(new Eredmeny());
+        t2.setName("Eredmény thread");
+        t2.start();
+
         //Jatszma jatszma = new Jatszma();
         //jatszma.start();
 
