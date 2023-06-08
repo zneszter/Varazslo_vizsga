@@ -71,9 +71,10 @@ public class Karakter extends Multithreading implements Kepessegek {
         return gyozelem;
     }
 
-    public void setGyozelem() {
-        int tmp = this.getGyozelem()+1;
-        this.gyozelem = tmp;
+    public void setGyozelem(Karakter karakter) {
+        int tmp = karakter.getGyozelem();
+        karakter.gyozelem = tmp+1;
+
     }
 
     @Override
@@ -86,16 +87,8 @@ public class Karakter extends Multithreading implements Kepessegek {
         return (random.nextInt(6)+1);
     }
 
-//    @Override
-//    public int lep() {
-//        return random.nextInt(3);
-//    }
-
     @Override
     public int lep() {
-//        Thread t2 = new Thread(new Karakter());
-//        t2.setName("Lepes thread");
-//        t2.start();
         return random.nextInt(3);
     }
 

@@ -55,16 +55,18 @@ public class Jatszma extends Multithreading {
         String eredmeny = "Döntetlen";
         if (harcos.getElet() > varazslo.getElet()) {
             eredmeny = "\n" + "A harcos gözött!";
-            //harcos.setGyozelem();
+            //harcos.setGyozelem(harcos);
+
             Karakter.H_GYOZELEM = Karakter.H_GYOZELEM+1;
         }
         if (harcos.getElet() < varazslo.getElet()) {
             eredmeny = "\n" + "A varázsló gözött!";
-            //varazslo.setGyozelem();
+            //varazslo.setGyozelem(varazslo);
             Karakter.V_GYOZELEM = Karakter.V_GYOZELEM+1;
         }
 
         Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN + 1;
+
         return eredmeny;
     }
 

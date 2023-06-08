@@ -10,6 +10,7 @@ public class Eredmeny extends Multithreading {
         System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
         System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
 
+
     }
 
 
