@@ -53,7 +53,7 @@ public class Karakter implements Kepessegek {
 
     @Override
     public int dob() {
-        return random.nextInt(6);
+        return (random.nextInt(6)+1);
     }
 
     @Override
