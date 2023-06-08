@@ -4,9 +4,10 @@ public class Varazslo extends Karakter{
         this.nev = "V";
     }
 
+    @Override
     void tamadas (Karakter karakter) {
         utesero = karakter.dob();
         karakter.setElet(utesero);
-        System.out.println("A " + this.getNev() + "támad!");
+        System.out.println("A varázsló (" + this.getNev() + ") támad! Ütőereje: " + utesero + " A varázsló élete: " + this.getElet() + " A harcos élete: " + karakter.getElet());
     }
 }
