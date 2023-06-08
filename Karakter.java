@@ -10,9 +10,11 @@ public class Karakter extends Multithreading implements Kepessegek {
     int utesero;
     int gyozelem;
 
-    static int V_GYOZELEM;
-    static int H_GYOZELEM;
-    static int HV_DONTETLEN;
+    static int V_GYOZELEM = 0;
+    static int H_GYOZELEM = 0;
+    static int HV_DONTETLEN = 0;
+
+    static int OSSZES = 20;
 
     Random random = new Random();
 
@@ -72,8 +74,8 @@ public class Karakter extends Multithreading implements Kepessegek {
     }
 
     public void setGyozelem(Karakter karakter) {
-        int tmp = karakter.getGyozelem();
-        karakter.gyozelem = tmp+1;
+        int tmp = this.getGyozelem();
+        this.gyozelem = tmp+1;
 
     }
 

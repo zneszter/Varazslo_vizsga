@@ -1,39 +1,27 @@
-public abstract class Multithreading implements Runnable {
+public class Multithreading implements Runnable {
 
     @Override
     public void run() {
-        //for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < Karakter.OSSZES; i++) {
 
             try {
                 //System.out.println("Currently the " + Thread.currentThread().getName() + " is running!");
 
                 Jatszma jatszma = new Jatszma();
                 Eredmeny eredmeny = new Eredmeny();
+//
+                eredmeny.start();
+                jatszma.start();
 
-                for (int i = 0; i < 20; i++) {
-                    jatszma.start();
-                    synchronized (eredmeny) {
-                        eredmeny.start();
-                    }
 
-                }
 
             } catch (Exception e) {
                 System.out.println("Hopááá!" + e.getMessage());
 
             }
 
-//            try {
-//                //System.out.println("Currently the " + Thread.currentThread().getName() + " is running!");
-//
-//                Eredmeny eredmeny = new Eredmeny();
-//                eredmeny.start();
-//
-//            } catch (Exception e) {
-//                System.out.println("Hopááá!" + e.getMessage());
-//            }
-
         }
+    }
 
 
 

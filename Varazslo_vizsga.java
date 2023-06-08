@@ -4,11 +4,11 @@ public class Varazslo_vizsga {
         System.out.println("Hello");
 
         Thread t1 = new Thread(new Jatszma());
-        t1.setName("main thread");
+        t1.setName("fő szál");
         t1.start();
 
         Thread t2 = new Thread(new Eredmeny());
-        t2.setName("Eredmény thread");
+        t2.setName("eredmény szál");
         t2.start();
 
         //Jatszma jatszma = new Jatszma();

@@ -14,11 +14,11 @@ public class Jatszma extends Multithreading {
     public void start() {
 
         try {
-            System.out.println("Üdvözöllek játékosok");
-            System.out.println("Currently the " + Thread.currentThread().getName() + " is running!");
+            System.out.println("--------------Üdvözöllek a játékban-------------" + "\n");
+            System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
             while (harcos.getElet() > 0 && varazslo.getElet() > 0 ) {
 //
-
+                System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
                 harcos.setPozicio(harcos.lep());
                 varazslo.setPozicio(varazslo.lep());
 
@@ -27,27 +27,28 @@ public class Jatszma extends Multithreading {
 //                System.out.println(Thread.currentThread().getName() + "A varazsló(" + varazslo.getNev() + ") poziciója: " + varazslo.getPozicio());
 
                 if (harcos.getPozicio() == varazslo.getPozicio()) {
-                    System.out.println("\n" + "Támadás!!!!");
+                    //System.out.println("\n" + "Támadás!!!!");
                     harcos.tamad(varazslo);
                     varazslo.tamad(harcos);
                 }
 
                 if (harcos.getElet() == varazslo.getElet()) {
-                    throw new Exception("Egyszerre fogyott el az életük. Döntetlen!!!");
+                    throw new Exception("Döntetlen!!!");
                 }
 
             }
             System.out.println(eredmeny()+"\n");
-//            System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
-//            System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
-//            System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
+            System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
+            System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
+            //System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
 
         }
         catch (Exception e) {
             System.out.println("Hoppáááá! " + e.getMessage());
 
         }
-        System.out.println("A játéknak vége!");
+        System.out.println("A játéknak vége!" + "\n");
+        System.out.println("---------------------------------------------------");
 
     }
 
@@ -56,17 +57,15 @@ public class Jatszma extends Multithreading {
         if (harcos.getElet() > varazslo.getElet()) {
             eredmeny = "\n" + "A harcos gözött!";
             //harcos.setGyozelem(harcos);
-
-            Karakter.H_GYOZELEM = Karakter.H_GYOZELEM+1;
+            Karakter.H_GYOZELEM = Karakter.H_GYOZELEM + 1;
         }
         if (harcos.getElet() < varazslo.getElet()) {
             eredmeny = "\n" + "A varázsló gözött!";
             //varazslo.setGyozelem(varazslo);
-            Karakter.V_GYOZELEM = Karakter.V_GYOZELEM+1;
+            Karakter.V_GYOZELEM = Karakter.V_GYOZELEM + 1;
         }
 
-        Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN + 1;
-
+        //Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN + 1;
         return eredmeny;
     }
 
