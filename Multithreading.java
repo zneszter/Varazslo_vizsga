@@ -5,12 +5,9 @@ public class Multithreading implements Runnable {
         for (int i = 0; i < Karakter.OSSZES; i++) {
 
             try {
-                //System.out.println("Currently the " + Thread.currentThread().getName() + " is running!");
+                System.out.println("Jelenleg a " + Thread.currentThread().getName() + " szál fut!");
 
                 Jatszma jatszma = new Jatszma();
-                Eredmeny eredmeny = new Eredmeny();
-//
-                eredmeny.start();
                 jatszma.start();
 
 

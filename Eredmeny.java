@@ -1,4 +1,4 @@
-public class Eredmeny extends Multithreading {
+public class Eredmeny extends MultithreadEredmeny {
 
 
     public Eredmeny() {
@@ -8,9 +8,11 @@ public class Eredmeny extends Multithreading {
 
             try {
 
-                System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+                //System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+                System.out.println("A " + Karakter.OSSZES + " futás alapján a következő statisztika született: ");
                 System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
                 System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
+                System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
 
             } catch (Exception e) {
                 System.out.println("Hopááá!" + e.getMessage());

@@ -9,12 +9,12 @@ public class Karakter extends Multithreading implements Kepessegek {
     int pozicio;
     int utesero;
     int gyozelem;
-
+    static int OSSZES = 20;
     static int V_GYOZELEM = 0;
     static int H_GYOZELEM = 0;
-    static int HV_DONTETLEN = 0;
+    static int HV_DONTETLEN = OSSZES;
 
-    static int OSSZES = 20;
+
 
     Random random = new Random();
 

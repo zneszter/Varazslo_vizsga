@@ -15,10 +15,12 @@ public class Jatszma extends Multithreading {
 
         try {
             System.out.println("--------------Üdvözöllek a játékban-------------" + "\n");
-            System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+            //System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+            System.out.println("A harcos kezdeti élete: " + harcos.getElet());
+            System.out.println("A varazsló kezdeti élete: " + varazslo.getElet());
             while (harcos.getElet() > 0 && varazslo.getElet() > 0 ) {
 //
-                System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+                //System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
                 harcos.setPozicio(harcos.lep());
                 varazslo.setPozicio(varazslo.lep());
 
@@ -38,9 +40,9 @@ public class Jatszma extends Multithreading {
 
             }
             System.out.println(eredmeny()+"\n");
-            System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
-            System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
-            //System.out.println("Döntetlen: " + Karakter.HV_DONTETLEN);
+//            System.out.println("Jelenleg a " + Thread.currentThread().getName() + " fut!");
+//            System.out.println("Harcos gyozelmek: " + Karakter.H_GYOZELEM);
+//            System.out.println("Varazslo gyozelmek: " + Karakter.V_GYOZELEM);
 
         }
         catch (Exception e) {
@@ -53,6 +55,10 @@ public class Jatszma extends Multithreading {
     }
 
     public String eredmeny() {
+//        Thread t2 = new Thread(new Eredmeny());
+//        t2.setName("eredmény szál");
+//        t2.start();
+
         String eredmeny = "Döntetlen";
         if (harcos.getElet() > varazslo.getElet()) {
             eredmeny = "\n" + "A harcos gözött!";
@@ -65,7 +71,7 @@ public class Jatszma extends Multithreading {
             Karakter.V_GYOZELEM = Karakter.V_GYOZELEM + 1;
         }
 
-        //Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN + 1;
+        Karakter.HV_DONTETLEN = Karakter.HV_DONTETLEN - 1;
         return eredmeny;
     }
 
